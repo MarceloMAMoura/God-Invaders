@@ -11,12 +11,14 @@ var content = [
     "e a curiosidade humana fez com que esta fosse aberta, e no",
     "mesmo instante, todos os males que ali haviam foram libertados",
     "e assolaram a humanidade por muitos e muitos anos...",
+    "",
 	"No ano de 2043, um jovem piloto chamado Bruce vive em uma terra", 
     "desolada e com poucos sobreviventes do ataque dos monstros no seu",
     "refúgio chamado Greckos.", 
+    "",
     "Não aceitando mais a condição de seu povo, Bruce se oferece para lutar contra",
     "as frentes inimigas e salvar Greckos.",
-"                                        ",
+    "                                                  ",
 
 ];
 

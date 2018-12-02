@@ -3,7 +3,7 @@
     furia, furia2, furia3, furiaPonto = 0, ragebala = 0, inimigoG, inimigoGrupoGarg ,inimigoGarg, boss, bossGrupo,
     bossHP = 100, movB, balaArma, balaBoss, balaBoss2, proximoAtaqueB = 0, velocidadeAtaqueB = 3000, inimigoDP, inimigoDPGrupo,
     scoreBoss = 0, level = 0, levelvelocidade = -1, night, evening, day, morning, sun, lifehack, button, ciclopeGrupo, ciclope,
-    harpia, harpiaGrupo, harpia2, harpiaGrupo2, tipoBoss, boss2, bossGrupo2;
+    harpia, harpiaGrupo, harpia2, harpiaGrupo2, tipoBoss, boss2, bossGrupo2, bossAtirar = true;
 
 var audioBoss, tiroNave, rageSom, hitNave, naveMorte, fullRage;
 
@@ -411,6 +411,7 @@ jogo.fase1.prototype = {
           vidaPersonagem = 3;
           score = 0;
           game.state.restart();
+          levelvelocidade = -1;
           }, this, 2, 1, 0);
         }
 
@@ -471,6 +472,8 @@ jogo.fase1.prototype = {
 
      ataqueB: function(){
 
+      if(bossAtirar == true){
+          
        if(game.time.now > proximoAtaqueB){
            proximoAtaqueB = game.time.now + velocidadeAtaqueB;
         var atk_boss = balaBoss.getFirstDead();
@@ -481,9 +484,12 @@ jogo.fase1.prototype = {
           audioBoss.play();
 
          }
+                }
+
     },
     ataqueB2: function(){
 
+        if(bossAtirar == true){
        if(game.time.now > proximoAtaqueB){
            proximoAtaqueB = game.time.now + velocidadeAtaqueB;
         var atk_boss = balaBoss.getFirstDead();
@@ -494,6 +500,7 @@ jogo.fase1.prototype = {
           audioBoss.play();
 
          }
+            }
     },
 
 
@@ -863,7 +870,7 @@ jogo.fase1.prototype = {
       // inimigoG.animations.stop();
         boss.animations.play('bossMorrendo', 7, false, true);
              level ++;
-
+             levelvelocidade -= 1;//Aumenta velocidade dos monstros
 
         furiaPonto ++;
         controleFuria();
@@ -871,6 +878,7 @@ jogo.fase1.prototype = {
              scoreBoss = 0;
         msgScore.setText(score);//Mensagem que mostra o score
              bossHP = 200;
+             bossAtirar = false;
          }
          bossHP -= 3;
 
@@ -888,7 +896,7 @@ jogo.fase1.prototype = {
       // inimigoG.animations.stop();
         boss2.animations.play('bossMorrendo2', 7, false, true);
              level ++;
-
+             levelvelocidade -= 1;//Aumenta velocidade dos monstros
 
         furiaPonto ++;
         controleFuria();
@@ -896,6 +904,7 @@ jogo.fase1.prototype = {
              scoreBoss = 0;
         msgScore.setText(score);//Mensagem que mostra o score
              bossHP = 200;
+             bossAtirar = false;
          }
          bossHP -= 3;
 
@@ -1017,7 +1026,7 @@ jogo.fase1.prototype = {
       if(bossGrupo.total < 1){
 
            if(scoreBoss >= 100){//Ao marcar 1500 pontos o boss spawna
-               levelvelocidade -= 1;//Aumenta velocidade dos monstros
+
 
 
 
@@ -1027,7 +1036,7 @@ jogo.fase1.prototype = {
         boss.play('bossAndando', 7, true);
 
            scoreBoss = 0;
-           
+           bossAtirar = true;
 
            }
          }
@@ -1039,7 +1048,7 @@ jogo.fase1.prototype = {
      if(bossGrupo2.total < 1){
 
            if(scoreBoss >= 100){//Ao marcar 1500 pontos o boss spawna
-               levelvelocidade -= 1;//Aumenta velocidade dos monstros
+               
 
 
 
@@ -1049,6 +1058,7 @@ jogo.fase1.prototype = {
         boss2.play('bossAndando2', 7, true);
 
            scoreBoss = 0;
+               bossAtirar = true;
            
 
            }
@@ -1183,11 +1193,133 @@ jogo.fase1.prototype = {
               
               
               
+              
+              
+              if(inimigoGrupo.total < 1){
+        inimigoG = inimigoGrupo.create(590, game.world.randomY - 30, 'dragao2');
+        inimigoG.animations.add('drag2Voando',[0, 1, 2, 3]);
+        inimigoG.animations.add('morte_drag2',[5, 6, 7, 8, 9, 10, 11, 12]);
+        inimigoG.play('drag2Voando', 7, true);
+
+
+     }
+
+        if(inimigoGrupoGarg.total < 1){
+        inimigoGarg = inimigoGrupoGarg.create(590, game.world.randomY - 30, 'gargo');
+        inimigoGarg.animations.add('gargVoando',[0, 1, 2, 3, 4]);
+        inimigoGarg.animations.add('morte_garg',[5, 6, 7, 8, 9, 10, 11, 12]);
+        inimigoGarg.play('gargVoando', 7, true);
+         }
+              
+              
+              
+               if(ciclopeGrupo.total < 1){
+        ciclope = ciclopeGrupo.create(590, 336, 'ciclope');
+        ciclope.animations.add('ciclopeAndando',[0, 1, 2, 3, 4, 5, 6]);
+        ciclope.animations.add('morte_ciclope',[7, 8, 9, 10, 11, 12, 13, 14]);
+        ciclope.play('ciclopeAndando', 14, true);
+
+
+     }
+              
+              
+               if(harpiaGrupo2.total < 1){
+        harpia2 = harpiaGrupo2.create(590, game.world.randomY - 30, 'harpia2');
+        harpia2.animations.add('harpiaAndando2',[0, 1, 2, 3, 4, 5]);
+        harpia2.animations.add('morte_harpia2',[7, 8, 9, 10, 11]);
+        harpia2.play('harpiaAndando2', 14, true);  
+                   
+                   
+                   
           }
-          if(level == 4){
+              
+              
+              
+              
+          }
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+          if(level >= 4){
 
               morning.visible = false;
+                   if(inimigoGrupo.total < 1){
+        inimigoG = inimigoGrupo.create(590, game.world.randomY - 30, 'dragao2');
+        inimigoG.animations.add('drag2Voando',[0, 1, 2, 3]);
+        inimigoG.animations.add('morte_drag2',[5, 6, 7, 8, 9, 10, 11, 12]);
+        inimigoG.play('drag2Voando', 7, true);
+
+
+     }
+
+        if(inimigoGrupoGarg.total < 1){
+        inimigoGarg = inimigoGrupoGarg.create(590, game.world.randomY - 30, 'gargo');
+        inimigoGarg.animations.add('gargVoando',[0, 1, 2, 3, 4]);
+        inimigoGarg.animations.add('morte_garg',[5, 6, 7, 8, 9, 10, 11, 12]);
+        inimigoGarg.play('gargVoando', 7, true);
+         }
+     
+     if(inimigoDPGrupo.total < 1){
+
+
+
+        inimigoDP = inimigoDPGrupo.create(590, game.world.randomY - 30, 'dragao_preto');
+        inimigoDP.animations.add('dragaoPVoando',[0, 1, 2, 3]);
+        inimigoDP.animations.add('morte_dragaoP',[5, 6, 7, 8, 9, 10, 11, 12]);
+        inimigoDP.play('dragaoPVoando', 7, true);
+
+         }
+               
+            
               
+              
+               if(ciclopeGrupo.total < 1){
+        ciclope = ciclopeGrupo.create(590, 336, 'ciclope');
+        ciclope.animations.add('ciclopeAndando',[0, 1, 2, 3, 4, 5, 6]);
+        ciclope.animations.add('morte_ciclope',[7, 8, 9, 10, 11, 12, 13, 14]);
+        ciclope.play('ciclopeAndando', 14, true);
+
+
+     }
+                   
+                   
+                   
+                   
+       if(harpiaGrupo.total < 1){
+        harpia = harpiaGrupo.create(590, game.world.randomY - 30, 'harpia');
+        harpia.animations.add('harpiaAndando',[0, 1, 2, 3, 4, 5]);
+        harpia.animations.add('morte_harpia',[7, 8, 9, 10, 11]);
+        harpia.play('harpiaAndando', 14, true);  
+                   
+                   
+                   
+          }
+         
+         
+           if(harpiaGrupo2.total < 1){
+        harpia2 = harpiaGrupo2.create(590, game.world.randomY - 30, 'harpia2');
+        harpia2.animations.add('harpiaAndando2',[0, 1, 2, 3, 4, 5]);
+        harpia2.animations.add('morte_harpia2',[7, 8, 9, 10, 11]);
+        harpia2.play('harpiaAndando2', 14, true);  
+                   
+                   
+                   
+          }
               
               
           }
