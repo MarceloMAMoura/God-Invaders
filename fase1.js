@@ -689,7 +689,8 @@ jogo.fase1.prototype = {
            
         
            
-           
+                   }
+
          if(inimigoG.y >= 10 ){
         if(movB == 1){
 
@@ -817,7 +818,7 @@ jogo.fase1.prototype = {
 
 
              }
-}
+
 
 },
 
