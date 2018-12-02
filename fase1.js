@@ -405,14 +405,20 @@ jogo.fase1.prototype = {
 
         }else{
 	      button = game.add.button(220, 250, 'gameover', function() {
+          level = 0;
           this.pendingDestroy = true;
           start_sound = game.add.audio('start_sound');
           start_sound.play();
           vidaPersonagem = 3;
           score = 0;
+            scoreBoss = 0 ;  
+            
           game.state.restart();
           levelvelocidade = -1;
           }, this, 2, 1, 0);
+            
+          
+            
         }
 
 
@@ -747,7 +753,7 @@ jogo.fase1.prototype = {
 
              }
 
-        if(harpia){
+        if(harpiaGrupo.total >= 1){
             
         
                  if(harpia.y >= 10){
@@ -776,7 +782,7 @@ jogo.fase1.prototype = {
 }
         
         
-             if(harpia2){
+             if(harpiaGrupo2.total >= 1){
             
         
                  if(harpia2.y >= 10){
