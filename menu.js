@@ -21,6 +21,7 @@ jogo.menu.prototype = {
     create: function (){
          menu_song = game.add.audio('menu_song');
          menu_song.play();
+         menu_song.loop = true;
          background = game.add.tileSprite(0,0, 800, 600,'bgmenu');
              button = game.add.button(220, 250, 'button', actionOnClick, this, 2, 1, 0);
     },
