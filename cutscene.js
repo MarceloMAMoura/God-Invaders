@@ -17,6 +17,7 @@ var content = [
     "se chocando com uma montanha e explodindo em seguida.",
     "Após esse fatídico dia, Bruce é mandado à um orfanato, ",
     "onde passou os próximos 8 anos.",
+    "                                                   ",
 ];
 
 var line = [];
