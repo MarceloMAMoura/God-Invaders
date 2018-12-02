@@ -364,13 +364,13 @@ jogo.fase1.prototype = {
         }
 
         if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)){
-            nave.scale.setTo(-1, 1);
+           // nave.scale.setTo(-1, 1);
             nave.x -= speed;
-            direcaoBala = false;
+          //  direcaoBala = false;
             nave.animations.play('naveVoandoLado', 14, true);
 
              //Seta posicao X de onde a bala sai da nave
-            balaArma.setAll('anchor.x', 1);
+          //  balaArma.setAll('anchor.x', 1);
 
         }
 
