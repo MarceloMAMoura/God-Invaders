@@ -3,21 +3,21 @@ jogo.cutscene = function (){};
 var background;
 
 var content = [
-    "Enquanto Bruce caia sozinho, podia ver o avião de seu pai (...)",
-    "No dia de seu aniversário de 10 anos, Steve leva Bruce e Marta ",
-    "para passearem em seu avião...",
+    "Há muito tempo atrás, havia uma ânfora que segundo a",
+    "lenda, se ela fosse aberta o caos reinaria sobre",
+    "todo o planeta em que estivesse.",
     "",
-    "Durante o vôo, algo brilhante cai do céu e atinge o avião, ",
-    "que começa a cair em direção à uma montanha,",
-    "e com apenas 1 paraquedas disponível,",
-    "Steve decide proteger seu bem mais precioso,",
-    "seu filho, colocando nele o paraquedas e o atirando para fora.",
-    "",
-    "Enquanto Bruce caia sozinho, podia ver o avião de seu pai",
-    "se chocando com uma montanha e explodindo em seguida.",
-    "Após esse fatídico dia, Bruce é mandado à um orfanato, ",
-    "onde passou os próximos 8 anos.",
-    "                                                   ",
+	"Por volta de 1990 pesquisadores encontraram-na por acaso,", 
+    "e a curiosidade humana fez com que esta fosse aberta, e no",
+    "mesmo instante, todos os males que ali haviam foram libertados",
+    "e assolaram a humanidade por muitos e muitos anos...",
+	"No ano de 2043, um jovem piloto chamado Bruce vive em uma terra", 
+    "desolada e com poucos sobreviventes do ataque dos monstros no seu",
+    "refúgio chamado Greckos.", 
+    "Não aceitando mais a condição de seu povo, Bruce se oferece para lutar contra",
+    "as frentes inimigas e salvar Greckos.",
+"                                        ",
+
 ];
 
 var line = [];
