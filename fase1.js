@@ -681,7 +681,7 @@ jogo.fase1.prototype = {
         
         
         
-       if(bossGrupo.total >= 1){
+        if(bossGrupo.total >= 1){
 
         if(boss.x < 350){
             boss.x = 350
@@ -700,9 +700,17 @@ jogo.fase1.prototype = {
 
         }
            
-        
-           
-                   }
+             if(boss.y <= 120){
+                if(movB == 2){
+
+                   boss.body.velocity.y += 1.4;
+
+                }
+
+
+             }
+
+        }
 
          if(inimigoG.y >= 10 ){
         if(movB == 1){
